@@ -1,0 +1,321 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>机器学习基本概念 | 老陈的空间</title>
+
+<link rel="shortcut icon" href="https://hongbochen.github.io/favicon.ico?v=1776954729801">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://hongbochen.github.io/styles/main.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"> -->
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages//dart.min.js"></script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script> -->
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+    
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@9.1.1/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script> 
+    
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            老陈的空间
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="changeNavbar">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+            <div class="nav-item">
+                
+                <a href="/" class="menu gt-a-link">
+                    首页
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/archives" class="menu gt-a-link">
+                    归档
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/tags" class="menu gt-a-link">
+                    标签
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/post/about" class="menu gt-a-link">
+                    关于
+                </a>
+                
+            </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1776954729801"
+                action="/search/">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = () => {
+        var element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+</script>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    机器学习基本概念
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2026-04-23 ·
+                    </time>
+                    
+                        <a href="https://hongbochen.github.io/tag/9d1QvuVFZR/" class="post-tags">
+                            # 机器学习
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <figure data-type="image" tabindex="1"><img src="https://hongbochen.github.io/post-images/1776954684005.jpeg" alt="" loading="lazy"></figure>
+<h2 id="机器学习两种范式">机器学习两种范式</h2>
+<p>有监督学习和无监督学习是机器学习中比较核心的两种范式。有监督和无监督的区别在于对于训练的数据是否有&quot;标签&quot;，以及最终学习的目标是什么。</p>
+<p>对于有监督的学习，训练的数据是有标签的，换句话说，训练的数据是有原始数据和结果数据的，在训练的过程中，机器学习通过找到原始数据和结果数据之前内在规律和联系，形成一个模型，用于后续的新数据的计算，</p>
+<p>对于无监督的学习，训练的数据是无标签的，即只有原始数据，在机器学习过程中，自己发现这些数据之间的规律，然后形成一个模型，用于后续的数据计算。</p>
+<p>由此，可以形成有监督学习和无监督学习之间的对比关系表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">对比项</th>
+<th style="text-align:center">有监督学习</th>
+<th style="text-align:center">无监督学习</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">训练数据</td>
+<td style="text-align:center">带标签(输入数据+正确答案)</td>
+<td style="text-align:center">无标签（只有输入数据）</td>
+</tr>
+<tr>
+<td style="text-align:left">学习目标</td>
+<td style="text-align:center">预测结果或分类</td>
+<td style="text-align:center">发现隐藏的规律或模式</td>
+</tr>
+<tr>
+<td style="text-align:left">反馈机制</td>
+<td style="text-align:center">模型通过对比预测结果和真实答案来修正误差</td>
+<td style="text-align:center">没有直接反馈，算法自行寻找数据内在联系</td>
+</tr>
+<tr>
+<td style="text-align:left">典型任务</td>
+<td style="text-align:center">分类或回归</td>
+<td style="text-align:center">聚类，降维，关联规则</td>
+</tr>
+<tr>
+<td style="text-align:left">场景</td>
+<td style="text-align:center">垃圾邮件识别，房价预测</td>
+<td style="text-align:center">客户细分，推荐系统，异常检测</td>
+</tr>
+</tbody>
+</table>
+<h2 id="监督式学习">监督式学习</h2>
+<p>在该范式下，在给算法提供数据集的时候，不仅仅提供输入数据，还要提供输入数据相对应的结果（或答案）。这样，在机器学习过程中，相应的算法会找到输入数据和相应的答案之间的映射关系形成算法模型。以此新的数据进来的时候，可以通过该模型找到的对应关系，计算出相应的预测输出。</p>
+<h3 id="监督式学习主要任务类型">监督式学习主要任务类型</h3>
+<ul>
+<li>分类：预测数据属于那个类别。</li>
+<li>回归：预测一系列数据的数值。</li>
+</ul>
+<h3 id="监督式学习常用算法">监督式学习常用算法</h3>
+<pre><code>线性回归，逻辑回归，决策树，支持向量机，神经网络
+</code></pre>
+<h2 id="非监督式学习">非监督式学习</h2>
+<p>在该范式下，输入的数据没有标签，算法需要自己在输入的数据中找出数据内部的结构或规律，或者是寻找数据之间的相似性。</p>
+<h3 id="非监督式学习主要任务类型">非监督式学习主要任务类型</h3>
+<ul>
+<li>聚类：把相似的数据归为一组。</li>
+<li>关联规则学习：发现数据项之间的关系。</li>
+<li>降维：保留数据的主要特征，减少数据的无关或微关特征，用户数据可视化，降噪或去噪。</li>
+<li>异常检测：识别出不符合常规模式的数据点。</li>
+</ul>
+<h3 id="非监督式学习的常用算法">非监督式学习的常用算法</h3>
+<pre><code>K-均值聚类、主成分分析、Aprioi算法
+</code></pre>
+<h2 id="过拟合overfitting和欠拟合underfitting">过拟合(overfitting)和欠拟合(underfitting)</h2>
+<p>在机器学习中，较为常见的两个问题便是过拟合和欠拟合。无论是过拟合还是欠拟合，最终机器学习后的模型都是无法达到预期的。</p>
+<p>机器学习最终的期望结果就是，不会出现过拟合，也不会出现欠拟合，寻找到一个“刚刚好”的模型，该模型既能理解训练数据中的核心规律，又不会被其中的噪声和特例所干扰。</p>
+<blockquote>
+<p>噪声：在机器学习中的一个概念，顾名思义，按照正常噪声的概念映射到机器学习中，噪声即为在机器学习中为机器学习造成干扰的数据或特征。在机器学习中，噪声分为两类：</p>
+<ul>
+<li>特征噪声(Feature Noise)：指在机器学习中输入的数据有错误数据或干扰数据。例如：音乐中有背景杂音，传感器采集的数据不准等。</li>
+<li>标签噪声(Label Noise)：指数据在标注的时候，被标注错误了。例如，表对一张图片进行标注的时候，标出的“汽车”被标记为“路人”等。</li>
+</ul>
+</blockquote>
+<h3 id="欠拟合">欠拟合</h3>
+<p>欠拟合的表现就是训练之后的模型在训练数据和测试数据中的表现都不好。出现这种情况的原因便是模型简单，复杂度不足，无法捕获数据中复杂的关系和模式。这种情况通常也被称为“高偏差(High Bias)”。</p>
+<h4 id="欠拟合常见原因">欠拟合常见原因</h4>
+<ol>
+<li>模型太弱：用了简单的线性模型去拟合一个复杂的非线性模型。</li>
+<li>特征太少：输入给模型的特征值太少，例如只告诉模型“有四条腿”来识别猫，这种特征让模型很难给出准确的答案。</li>
+<li>训练不足：训练时间太短或学习效率太低，模型还未收敛到最优状态。</li>
+<li>正则化过强：为了防止过拟合而施加的正则化惩罚太重，反而限制了模型的学习能力。</li>
+</ol>
+<p>由此，可以根据相应的原因解决影响的欠拟合问题。</p>
+<h3 id="过拟合">过拟合</h3>
+<p>过拟合的表现便是模型在训练数据中表现良好，但是在测试数据中表现不佳。</p>
+<p>出现过拟合的根本原因在于模型大复杂，在模型训练过程中，不仅仅学到了数据中的普遍规律，同时还把数据中的噪声，异常数据等无关数据也当成了规律学习了下来。这种情况通常也被成为高方差(High Variance)。</p>
+<h4 id="过拟合常见原因">过拟合常见原因</h4>
+<ol>
+<li>模型太复杂：模型参数过多，结构过于复杂，拥有“死记硬背”的能力。</li>
+<li>训练数据太少：数据量不足，模型很容易把所有样本都“背”下来。</li>
+<li>训练过度：训练时间太长，模型开始过度拟合训练数据中的细节。</li>
+<li>数据噪声大：训练数据中包含大量错误或无关信息，模型被误导。</li>
+</ol>
+<p>同样也可以根据相应的原因解决过拟合问题。</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://hongbochen.github.io/post/yi-ge-32-sui-fei-chai-cheng-xu-yuan-de-zi-jiu-cong-xian-xing-dai-shu-kai-shi/" class="post-title gt-a-link">
+                    一个32岁废柴程序员的自救：从线性代数开始
+                </a>
+            </div>
+        
+
+        
+
+        
+            
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+<script>
+    // md5.min.js
+    !function(n){
+        "use strict";
+        function d(n,t){var r=(65535&n)+(65535&t);return(n>>16)+(t>>16)+(r>>16)<<16|65535&r}
+        function f(n,t,r,e,o,u){return d((c=d(d(t,n),d(e,u)))<<(f=o)|c>>>32-f,r);var c,f}
+        function l(n,t,r,e,o,u,c){return f(t&r|~t&e,n,t,o,u,c)}
+        function v(n,t,r,e,o,u,c){return f(t&e|r&~e,n,t,o,u,c)}
+        function g(n,t,r,e,o,u,c){return f(t^r^e,n,t,o,u,c)}
+        function m(n,t,r,e,o,u,c){return f(r^(t|~e),n,t,o,u,c)}
+        function i(n,t){var r,e,o,u,c;n[t>>5]|=128<<t%32,n[14+(t+64>>>9<<4)]=t;var f=1732584193,i=-271733879,a=-1732584194,h=271733878;for(r=0;r<n.length;r+=16)f=l(e=f,o=i,u=a,c=h,n[r],7,-680876936),h=l(h,f,i,a,n[r+1],12,-389564586),a=l(a,h,f,i,n[r+2],17,606105819),i=l(i,a,h,f,n[r+3],22,-1044525330),f=l(f,i,a,h,n[r+4],7,-176418897),h=l(h,f,i,a,n[r+5],12,1200080426),a=l(a,h,f,i,n[r+6],17,-1473231341),i=l(i,a,h,f,n[r+7],22,-45705983),f=l(f,i,a,h,n[r+8],7,1770035416),h=l(h,f,i,a,n[r+9],12,-1958414417),a=l(a,h,f,i,n[r+10],17,-42063),i=l(i,a,h,f,n[r+11],22,-1990404162),f=l(f,i,a,h,n[r+12],7,1804603682),h=l(h,f,i,a,n[r+13],12,-40341101),a=l(a,h,f,i,n[r+14],17,-1502002290),f=v(f,i=l(i,a,h,f,n[r+15],22,1236535329),a,h,n[r+1],5,-165796510),h=v(h,f,i,a,n[r+6],9,-1069501632),a=v(a,h,f,i,n[r+11],14,643717713),i=v(i,a,h,f,n[r],20,-373897302),f=v(f,i,a,h,n[r+5],5,-701558691),h=v(h,f,i,a,n[r+10],9,38016083),a=v(a,h,f,i,n[r+15],14,-660478335),i=v(i,a,h,f,n[r+4],20,-405537848),f=v(f,i,a,h,n[r+9],5,568446438),h=v(h,f,i,a,n[r+14],9,-1019803690),a=v(a,h,f,i,n[r+3],14,-187363961),i=v(i,a,h,f,n[r+8],20,1163531501),f=v(f,i,a,h,n[r+13],5,-1444681467),h=v(h,f,i,a,n[r+2],9,-51403784),a=v(a,h,f,i,n[r+7],14,1735328473),f=g(f,i=v(i,a,h,f,n[r+12],20,-1926607734),a,h,n[r+5],4,-378558),h=g(h,f,i,a,n[r+8],11,-2022574463),a=g(a,h,f,i,n[r+11],16,1839030562),i=g(i,a,h,f,n[r+14],23,-35309556),f=g(f,i,a,h,n[r+1],4,-1530992060),h=g(h,f,i,a,n[r+4],11,1272893353),a=g(a,h,f,i,n[r+7],16,-155497632),i=g(i,a,h,f,n[r+10],23,-1094730640),f=g(f,i,a,h,n[r+13],4,681279174),h=g(h,f,i,a,n[r],11,-358537222),a=g(a,h,f,i,n[r+3],16,-722521979),i=g(i,a,h,f,n[r+6],23,76029189),f=g(f,i,a,h,n[r+9],4,-640364487),h=g(h,f,i,a,n[r+12],11,-421815835),a=g(a,h,f,i,n[r+15],16,530742520),f=m(f,i=g(i,a,h,f,n[r+2],23,-995338651),a,h,n[r],6,-198630844),h=m(h,f,i,a,n[r+7],10,1126891415),a=m(a,h,f,i,n[r+14],15,-1416354905),i=m(i,a,h,f,n[r+5],21,-57434055),f=m(f,i,a,h,n[r+12],6,1700485571),h=m(h,f,i,a,n[r+3],10,-1894986606),a=m(a,h,f,i,n[r+10],15,-1051523),i=m(i,a,h,f,n[r+1],21,-2054922799),f=m(f,i,a,h,n[r+8],6,1873313359),h=m(h,f,i,a,n[r+15],10,-30611744),a=m(a,h,f,i,n[r+6],15,-1560198380),i=m(i,a,h,f,n[r+13],21,1309151649),f=m(f,i,a,h,n[r+4],6,-145523070),h=m(h,f,i,a,n[r+11],10,-1120210379),a=m(a,h,f,i,n[r+2],15,718787259),i=m(i,a,h,f,n[r+9],21,-343485551),f=d(f,e),i=d(i,o),a=d(a,u),h=d(h,c);return[f,i,a,h]}
+        function a(n){var t,r="",e=32*n.length;for(t=0;t<e;t+=8)r+=String.fromCharCode(n[t>>5]>>>t%32&255);return r}
+        function h(n){var t,r=[];for(r[(n.length>>2)-1]=void 0,t=0;t<r.length;t+=1)r[t]=0;var e=8*n.length;for(t=0;t<e;t+=8)r[t>>5]|=(255&n.charCodeAt(t/8))<<t%32;return r}
+        function e(n){var t,r,e="0123456789abcdef",o="";for(r=0;r<n.length;r+=1)t=n.charCodeAt(r),o+=e.charAt(t>>>4&15)+e.charAt(15&t);return o}
+        function r(n){return unescape(encodeURIComponent(n))}
+        function o(n){return a(i(h(t=r(n)),8*t.length));var t}
+        function u(n,t){return function(n,t){var r,e,o=h(n),u=[],c=[];for(u[15]=c[15]=void 0,16<o.length&&(o=i(o,8*n.length)),r=0;r<16;r+=1)u[r]=909522486^o[r],c[r]=1549556828^o[r];return e=i(u.concat(h(t)),512+8*t.length),a(i(c.concat(e),640))}(r(n),r(t))}
+        function t(n,t,r){return t?r?u(t,n):e(u(t,n)):r?o(n):e(o(n))}
+        "function"==typeof define&&define.amd?define(function(){return t}):"object"==typeof module&&module.exports?module.exports=t:n.md5=t;
+    }(this);
+</script>
+
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: 'Ov23limVrh9c04nDebRr',
+    clientSecret: '5f08f9f24e91cc1687cda00bb31298ea17a29d72',
+    repo: 'hongbochen.github.io',
+    owner: 'hongbochen',
+    admin: ['hongbochen'],
+    id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false       // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+            
+
+            
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">自信平生无愧事，死后方敢对青天</div>
+    <div class="social-container">
+        
+            
+                <a href="https://github.com/hongbochen" target="_blank">
+                    <i class="fab fa-github gt-c-content-color-first"></i>
+                </a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    <div>
+        Theme <a href="https://github.com/imhanjie/gridea-theme-pure" target="_blank">Pure</a>, Powered by <a
+                href="https://gridea.dev" target="_blank">Gridea</a> | <a href="https://hongbochen.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+</div>
+
+<script>
+  hljs.highlightAll()
+</script>
+
+    </div>
+</div>
+</body>
+</html>
